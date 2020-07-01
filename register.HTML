@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<script>
+function validate()
+{
+
+//name validation
+if( document.myForm.uname.value == "" )
+{
+	alert( "Please provide your name!" );
+	document.myForm.uname.focus() ;
+	return false;
+}
+if( document.myForm.ln.value == "" )
+{
+	alert( "Please provide your name!" );
+	document.myForm.ln.focus() ;
+	return false;
+}
+
+ //mail validation
+if( document.myForm.mail.value == "" )
+{
+	alert( "Please provide your Email!" );
+	document.myForm.mail.focus() ;
+	return false;
+}
+//mobile number validation
+if( document.myForm.number.value == "" ||
+isNaN( document.myForm.number.value ) ||
+document.myForm.number.value.length != 10 )
+{
+	alert( "Please provide a Mobile Number." );
+	document.myForm.Mobile.focus() ;
+	return false;
+}
+
+//address validation 
+if( document.myForm.add.value == "" )
+{
+	alert( "Please provide your Addres!" );
+	document.myForm.add.focus() ;
+	return false;
+}
+ 
+//zip validation 
+if( document.myForm.zip.value == "" ||
+isNaN( document.myForm.zip.value ) ||
+document.myForm.zip.value.length != 6 )
+{
+	alert( "Please provide a zip in the format 123456." );
+	document.myForm.zip.focus() ;
+	return false;
+}
+
+if( document.myForm.Country.value == "-1" )
+{
+	alert( "Please provide your country!" );
+	return false;
+}
+
+if( document.myForm.psw.value != "admin" )
+{
+	alert( "please provide password!" );
+	document.myForm.psw.focus() ;
+	return false;
+}
+if( document.myForm.psw.value != document.myForm.confirm_psw.value )
+{
+	alert( "please reenter corret password" );
+	document.myForm.psw.focus() ;
+	return false;
+}
+	return( true );
+}
+</script>
+<body>
+<div style="display: flex;
+    justify-content: center;margin-top:50px;margin-bottom:50px;">
+<form action="register_success.html" method="post" name="myForm" onSubmit="return(validate())">
+  <div class="container center">
+  
+	<h5 style="text-align:center;">Sign Up</h5><br>
+    <label for="uname"><b>First Name</b></label>
+    <input type="text" placeholder="First Name" name="uname" required>
+
+    <label for="ln"><b>Last Name</b></label>
+    <input type="password" placeholder="Last Name" name="ln" required>
+	
+	<label for="mail"><b>Email Id</b></label>
+    <input type="email" placeholder="Mail id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="mail" required>
+	
+	<label for="number"><b>Mobile No</b></label>
+    <input type="number" placeholder="Mobile No" name="number" required>
+	
+	<label for="dob"><b>Date of Birth</b></label>
+    <input type="date" placeholder="Date fo Birth" name="dob" required>
+	
+	<label for="gender">Select Gender</label><br>
+	<input type="radio" id="male" name="gender" value="male" required>
+	<label for="male">Male</label>
+	
+	<input type="radio" id="female" name="gender" value="female" required>
+	<label for="female">Female</label>
+	
+	<input type="radio" id="other" name="gender" value="other" required>
+	<label for="other">Other</label><br>
+		
+	<label for="add"><b>Address</b></label>
+    <input type="text" placeholder="Address" name="add" required>
+	
+	<label for="zip"><b>Zip Code</b></label>
+    <input type="number" placeholder="Zip Code" name="zip" required>
+	
+	<label for="country">Country</label><br>
+	<select name="Country">
+		<option value="-1" selected>[choose yours]</option>
+		<option value="1">USA</option>
+		<option value="2">UK</option>
+		<option value="3">INDIA</option>
+	</select>
+	
+	<label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="psw" required>
+	
+	<label for="confirm_psw"><b>ReEnter Password</b></label>
+    <input type="password" placeholder="ReEnter Password" name="confirm_psw" required>
+	
+	<label for="file"><b>Upload File</b></label>
+    <input type="file" placeholder="File" name="file" required><br><br>
+	
+    <button type="submit">Register</button>
+  </div>
+
+</form>
+</div>
+</body>
+</html>

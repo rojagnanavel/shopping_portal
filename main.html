@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/form.css">
+</head>
+
+<script>
+function validate(){
+	if( document.myForm.uname.value != "admin" )
+	{
+		alert( "incorrect username!" );
+		document.myForm.uname.focus() ;
+		return false;
+	}
+	if( document.myForm.psw.value != "admin" )
+	{
+		alert( "incorrect password!" );
+		document.myForm.psw.focus() ;
+		return false;
+	}
+	return true;
+}
+</script>
+<body>
+<div style="display: flex;
+    justify-content: center;margin-top:50px;">
+<form action="shopping_page.html" method="post" name="myForm" onSubmit="return(validate())">
+	<a href="register.HTML" style="margin-right:10px;float:right;">Register</a>
+  <div class="imgcontainer">
+    <img src="assets/roja.jpg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div style="margin-right:10px;padding-bottom:50px;">
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+</div>
+
+</body>
+</html>
